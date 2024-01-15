@@ -24,7 +24,7 @@ class GetChargeState(JsonCommandWithMessageHandling, MessageBodyDataDict):
         :return: A message response
         """
         if data.get("isCharging") == 1:
-            event_bus.notify(StateEvent(State.DOCKED))
+            event_bus.notify(StateEvent(State.DOCKED, None))
         return HandlingResult.success()
 
     @classmethod
@@ -43,7 +43,7 @@ class GetChargeState(JsonCommandWithMessageHandling, MessageBodyDataDict):
                 status = State.ERROR
 
         if status:
-            event_bus.notify(StateEvent(State.DOCKED))
+            event_bus.notify(StateEvent(State.DOCKED, None))
             return HandlingResult.success()
 
         return HandlingResult.analyse()

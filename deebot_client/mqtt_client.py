@@ -266,9 +266,15 @@ class MqttClient:
                 command_name, None
             )
             if command_type is None:
+                # _LOGGER.debug("\n\n\n\n\ntopic_split")
+                # _LOGGER.debug(topic_split)
+                # _LOGGER.debug("\npayload")
+                # _LOGGER.debug(payload)
+                # _LOGGER.debug("\n")
                 _LOGGER.debug(
                     "Command %s does not support p2p handling (yet)", command_name
                 )
+                # _LOGGER.debug("\n\n\n\n")
                 return
 
             is_request = topic_split[9] == "q"

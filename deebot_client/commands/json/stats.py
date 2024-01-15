@@ -25,6 +25,12 @@ class GetStats(JsonCommandWithMessageHandling, MessageBodyDataDict):
             area=data.get("area"),
             time=data.get("time"),
             type=data.get("type"),
+            start=data.get("start"),
+            enable_power_mop=data.get("enablePowerMop"),
+            power_mop_type=data.get("powerMopType"),
+            aiopen=data.get("aiopen"),
+            aitypes=data.get("aitypes"),
+            avoid_count=data.get("avoidCount"),
         )
         event_bus.notify(stats_event)
         return HandlingResult.success()

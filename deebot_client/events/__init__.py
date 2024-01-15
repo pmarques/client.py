@@ -153,6 +153,12 @@ class StatsEvent(Event):
     area: int | None
     time: int | None
     type: str | None
+    start: int | None
+    enable_power_mop: int | None
+    power_mop_type: int | None
+    aiopen: int | None
+    aitypes: list | None
+    avoid_count: int | None
 
 
 @dataclass(frozen=True)
@@ -185,6 +191,7 @@ class StateEvent(Event):
     """State event representation."""
 
     state: State
+    mode: str | None  # slot (while docked)
 
 
 @dataclass(frozen=True)

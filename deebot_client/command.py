@@ -203,6 +203,7 @@ class CommandWithMessageHandling(Command, Message, ABC):
 
         :return: A message response
         """
+        # _LOGGER.debug(response)
         if response.get("ret") == "ok":
             data = response.get("resp", response)
             result = self.handle(event_bus, data)
